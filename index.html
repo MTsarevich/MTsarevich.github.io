@@ -1,11 +1,4 @@
-<!DOCTYPE html> <html> <head> <meta charset="utf-8" /> <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /> <meta name="viewport" content="width=device-width, initial-scale=1.0" /> <!--metatextblock--> <title>Приглашение на свадьбу "Как бьется сердце"</title> <meta property="og:url" content="https://invitelove.ru/how_heart_beats" /> <meta property="og:title" content="Приглашение на свадьбу &quot;Как бьется сердце&quot;" /> <meta property="og:description" content="" /> <meta property="og:type" content="website" /> <meta property="og:image" content="img/tild3161-3263-4436-b731-663333363239__2026_Nero_AI_Image_.jpeg" /> <link rel="canonical" href="https://invitelove.ru/how_heart_beats"> <!--/metatextblock--> <meta name="format-detection" content="telephone=no" /> <meta http-equiv="x-dns-prefetch-control" content="on"> <link rel="dns-prefetch" href="https://ws.tildacdn.com"> <link rel="dns-prefetch" href="https://static.tildacdn.com"> <link rel="shortcut icon" href="img/tild3533-3634-4632-b762-346361386261_photo.png" type="image/x-icon" /> <!-- Assets --> <script>
-/* ===== ГОСТИ: ключ → имя ===== */
-var GUESTS = {
-  "m1": "Иван",
-  "m2": "Мария",
-  "m3": "Семья Петровых"
-};
-/* ============================= */
+<!DOCTYPE html> <html> <head> <meta charset="utf-8" /> <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /> <meta name="viewport" content="width=device-width, initial-scale=1.0" /> <!--metatextblock--> <title>Приглашение на свадьбу "Как бьется сердце"</title> <meta property="og:url" content="https://invitelove.ru/how_heart_beats" /> <meta property="og:title" content="Приглашение на свадьбу &quot;Как бьется сердце&quot;" /> <meta property="og:description" content="" /> <meta property="og:type" content="website" /> <meta property="og:image" content="img/tild3161-3263-4436-b731-663333363239__2026_Nero_AI_Image_.jpeg" /> <link rel="canonical" href="https://invitelove.ru/how_heart_beats"> <!--/metatextblock--> <meta name="format-detection" content="telephone=no" /> <meta http-equiv="x-dns-prefetch-control" content="on"> <link rel="dns-prefetch" href="https://ws.tildacdn.com"> <link rel="dns-prefetch" href="https://static.tildacdn.com"> <link rel="shortcut icon" href="img/tild3533-3634-4632-b762-346361386261_photo.png" type="image/x-icon" /> <!-- Assets --> <script src="guests.js"></script> <script>
 (function(){
   var k = new URLSearchParams(window.location.search).get('to');
   if (!k || !GUESTS[k]) return;
@@ -16,6 +9,15 @@ var GUESTS = {
     if (el && wrap) {
       el.textContent = name;
       wrap.style.display = 'block';
+      requestAnimationFrame(function(){
+        var lh = parseFloat(getComputedStyle(el).lineHeight);
+        if (isNaN(lh)) lh = parseFloat(getComputedStyle(el).fontSize) * 1.55;
+        if (wrap.offsetHeight > lh * 1.3) {
+          var shift = Math.round(lh * 0.55);
+          var cur = parseFloat(wrap.style.top) || 55;
+          wrap.style.setProperty('top', Math.max(5, cur - shift) + 'px', 'important');
+        }
+      });
     }
   });
 })();
